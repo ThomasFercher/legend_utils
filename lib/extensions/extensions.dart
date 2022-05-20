@@ -28,6 +28,16 @@ extension ListPadding on List<Widget> {
     return layout;
   }
 
+  List<Widget> paddingAround(double padding) {
+    List<Widget> layout = [];
+    for (var i = 0; i < length; i++) {
+      layout.add(SizedBox(width: padding));
+      layout.add(this[i]);
+    }
+    layout.add(SizedBox(width: padding));
+    return layout;
+  }
+
   List<Widget> traillingPaddingCol(double padding, {bool last = false}) {
     List<Widget> layout = [];
     for (var i = 0; i < length; i++) {
