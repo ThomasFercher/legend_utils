@@ -46,7 +46,7 @@ class LegendFunctions {
     final TextPainter textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,
-      textScaleFactor: WidgetsBinding.instance?.window.textScaleFactor ?? 1.0,
+      textScaleFactor: WidgetsBinding.instance.window.textScaleFactor,
     )..layout();
     return textPainter.size;
   }
