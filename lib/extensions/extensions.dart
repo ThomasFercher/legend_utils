@@ -16,6 +16,27 @@ extension NullInit on dynamic {
   }
 }
 
+enum LegendRadiusType {
+  all,
+  vertical,
+  horizontal,
+}
+
+extension LegendRadius on double {
+  BorderRadius asRadius({LegendRadiusType type = LegendRadiusType.all}) {
+    switch (type) {
+      case LegendRadiusType.all:
+        return BorderRadius.all(Radius.circular(this));
+      case LegendRadiusType.vertical:
+        return BorderRadius.vertical(
+            top: Radius.circular(this), bottom: Radius.circular(this));
+      case LegendRadiusType.horizontal:
+        return BorderRadius.horizontal(
+            left: Radius.circular(this), right: Radius.circular(this));
+    }
+  }
+}
+
 extension ListPadding on List<Widget> {
   List<Widget> traillingPaddingRow(double padding, {bool last = false}) {
     List<Widget> layout = [];
