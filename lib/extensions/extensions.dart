@@ -49,13 +49,23 @@ extension ListPadding on List<Widget> {
     return layout;
   }
 
-  List<Widget> paddingAround(double padding) {
+  List<Widget> paddingRow(double padding) {
     List<Widget> layout = [];
     for (var i = 0; i < length; i++) {
       layout.add(SizedBox(width: padding));
       layout.add(this[i]);
     }
     layout.add(SizedBox(width: padding));
+    return layout;
+  }
+
+  List<Widget> paddingCol(double padding) {
+    List<Widget> layout = [];
+    for (var i = 0; i < length; i++) {
+      layout.add(SizedBox(height: padding));
+      layout.add(this[i]);
+    }
+    layout.add(SizedBox(height: padding));
     return layout;
   }
 
