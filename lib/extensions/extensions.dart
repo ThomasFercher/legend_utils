@@ -49,6 +49,24 @@ extension ListPadding on List<Widget> {
     return layout;
   }
 
+  List<Widget> spacingInsideRow(double spacing) {
+    List<Widget> layout = [];
+    for (var i = 0; i < length - 1; i++) {
+      layout.add(this[i]);
+      layout.add(SizedBox(width: spacing));
+    }
+    return layout;
+  }
+
+  List<Widget> spacingInsideColumn(double spacing) {
+    List<Widget> layout = [];
+    for (var i = 0; i < length; i++) {
+      layout.add(this[i]);
+      if (i < length - 1) layout.add(SizedBox(height: spacing));
+    }
+    return layout;
+  }
+
   List<Widget> paddingRow(double padding) {
     List<Widget> layout = [];
     for (var i = 0; i < length; i++) {

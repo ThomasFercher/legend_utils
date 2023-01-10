@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const Color nullColor = Color(0xFFFFFFFE);
 
@@ -15,16 +16,12 @@ class LegendFunctions {
   }
 
   static Future<void> launchInBrowser(String url) async {
-    /* if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
-      );
+    final Uri _uri = Uri.parse(url);
+    if (await canLaunchUrl(_uri)) {
+      await launchUrl(_uri);
     } else {
       throw 'Could not launch $url';
-    }*/
+    }
   }
 
   static Size? getSizeFromKey(GlobalKey k) {
