@@ -1,6 +1,6 @@
 extension LegendMapUtil<K, V> on Map<K, V> {
   V get(
-    String key, {
+    dynamic key, {
     V? doesntExist,
   }) {
     final result = this[key];
